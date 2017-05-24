@@ -67,8 +67,6 @@ class PostDownloader:
 def main():
     downloader = PostDownloader(page_id=my_page_id)
     posts = downloader.fetch()
-    for post in posts:
-        print (post.pretty_post())
     return post_db.insert_into_db(posts)
 
 if __name__ == '__main__':
