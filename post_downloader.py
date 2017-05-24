@@ -4,7 +4,7 @@ import datetime
 from constants import VKAPI_URL, VKAPI_VERSION
 from utils import VKApiError, Post as Post
 from settings import my_user_id as my_page_id, access_token as access_token
-
+import post_db
 
 class PostDownloader:
 
@@ -69,7 +69,7 @@ def main():
     posts = downloader.fetch()
     for post in posts:
         print (post.pretty_post())
-    return posts
+    return post_db.insert_into_db(posts)
 
 if __name__ == '__main__':
     main()
