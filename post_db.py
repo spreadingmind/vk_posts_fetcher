@@ -14,7 +14,7 @@ def insert_into_db(posts):
         'text': post.text,
         'likes': post.likes,
         'reposts': post.reposts} for post in posts
-            if db.my_vk_posts.find({'id': post.id}).count() == 0])
+            if post and db.my_vk_posts.find({'id': post.id}).count() == 0])
         return result
     else:
         return 'Nothing to add to DB'
